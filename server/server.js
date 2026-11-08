@@ -8,6 +8,7 @@ import requestRoutes from './routes/requests.js';
 import { pool } from './config/db.js';
 dotenv.config();
 const app = express();
+app.set('trust proxy', 1);
 app.use(helmet());
 app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }));
 app.use(express.json({ limit: '1mb' }));
